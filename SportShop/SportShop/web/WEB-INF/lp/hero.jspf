@@ -1,0 +1,143 @@
+<section class="hero-swiper swiper h-screen w-full">
+    <div class="swiper-wrapper">
+        <!-- SLIDE 1: SHOES -->
+        <div
+            class="swiper-slide relative h-screen overflow-hidden bg-gradient-to-br from-black via-gray-900 to-gray-800"
+            >
+            <!-- Outline Text Layer (Behind 3D) -->
+            <div
+                class="absolute inset-0 flex items-center justify-center z-[1] pointer-events-none select-none"
+                >
+                <h2
+                    class="font-bebas text-transparent text-stroke-white text-[100px] md:text-[150px] lg:text-[200px] font-black uppercase tracking-tighter leading-none"
+                    >
+                    FOOTBALL
+                </h2>
+            </div>
+
+            <!-- 3D Model - Full Screen (On Top) -->
+            <div class="absolute inset-0 z-10 flex items-center justify-center">
+                <model-viewer
+                    src="./models/football.glb"
+                    auto-rotate
+                    auto-rotate-delay="0"
+                    rotation-per-second="30deg"
+                    camera-controls
+                    touch-action="pan-y"
+                    disable-zoom
+                    environment-image="neutral"
+                    exposure="1.2"
+                    shadow-intensity="1"
+                    camera-orbit="0deg 75deg 105%"
+                    field-of-view="30deg"
+                    class="w-[150vw] h-[150vh] max-w-[700px] max-h-[70vh]"
+                    >
+                </model-viewer>
+            </div>
+
+            <!-- button cta -->
+            <div
+                class="absolute inset-0 z-20 flex items-center justify-center pointer-events-none"
+                >
+                <a
+                    href="product?search=&category=3&sort=default"
+                    class="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 inline-block bg-white text-black font-bold uppercase text-sm tracking-wider px-6 py-3 rounded-full shadow-lg/30 transition-all duration-300 hover:scale-125 cursor-pointer pointer-events-auto"
+                    >Check Now</a
+                >
+            </div>
+        </div>
+
+        <!-- SLIDE 2: APPAREL -->
+        <div
+            class="swiper-slide relative h-screen overflow-hidden bg-gradient-to-br from-black via-gray-800 to-gray-900"
+            >
+            <div
+                class="absolute inset-0 flex items-center justify-center z-[1] pointer-events-none select-none"
+                >
+                <h2
+                    class="font-bebas text-transparent text-[200px] md:text-[250px] lg:text-[300px] font-black uppercase tracking-tighter leading-none text-stroke-white"
+                    >
+                    BADMINTON
+                </h2>
+            </div>
+
+            <!-- 3D Model - Full Screen (On Top) -->
+            <div class="absolute inset-0 z-10 flex items-center justify-center">
+                <model-viewer
+                    src="./models/volleyball.glb"
+                    alt="Sports Apparel"
+                    auto-rotate
+                    auto-rotate-delay="0"
+                    rotation-per-second="30deg"
+                    camera-controls
+                    touch-action="pan-y"
+                    disable-zoom
+                    environment-image="neutral"
+                    exposure="1.2"
+                    shadow-intensity="1"
+                    camera-orbit="45deg 75deg 105%"
+                    field-of-view="30deg"
+                    class="w-[60vw] h-[60vh] max-w-[700px] max-h-[70vh]"
+                    >
+                </model-viewer>
+            </div>
+            <!-- button cta -->
+            <div
+                class="absolute inset-0 z-20 flex items-center justify-center pointer-events-none"
+                >
+                <a
+                    href="product?search=&category=2&sort=default"
+                    class="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 inline-block bg-white text-black font-bold uppercase text-sm tracking-wider px-6 py-3 rounded-full shadow-lg/30 transition-all duration-300 hover:scale-125 cursor-pointer pointer-events-auto"
+                    >Check Now</a
+                >
+            </div>
+        </div>
+
+        <!-- SLIDE 3: EQUIPMENT -->
+        <div
+            class="swiper-slide relative h-screen overflow-hidden bg-gradient-to-br from-black via-gray-900 to-gray-800"
+            >
+            <div
+                class="absolute inset-0 flex items-center justify-center z-[1] pointer-events-none select-none"
+                >
+                <h2
+                    class="font-bebas text-transparent text-[180px] md:text-[280px] lg:text-[350px] font-black uppercase tracking-tighter leading-none text-stroke-white"
+                    >
+                    GOLF
+                </h2>
+            </div>
+
+            <div class="absolute inset-0 z-10 flex items-center justify-center">
+                <model-viewer
+                    src="./models/golf.glb"
+                    alt="Sports Equipment"
+                    auto-rotate
+                    auto-rotate-delay="0"
+                    rotation-per-second="30deg"
+                    camera-controls
+                    touch-action="pan-y"
+                    disable-zoom
+                    environment-image="neutral"
+                    exposure="1.2"
+                    shadow-intensity="1"
+                    camera-orbit="-45deg 75deg 105%"
+                    field-of-view="30deg"
+                    class="w-[80vw] h-[80vh] max-w-[700px] max-h-[70vh]"
+                    >
+                </model-viewer>
+            </div>
+
+            <!-- button cta -->
+            <div
+                class="absolute inset-0 z-20 flex items-center justify-center pointer-events-none"
+                >
+                <a
+                    href="product?search=&category=1&sort=default"
+                    class="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 inline-block bg-white text-black font-bold uppercase text-sm tracking-wider px-6 py-3 rounded-full shadow-lg/30 transition-all duration-300 hover:scale-125 cursor-pointer pointer-events-auto"
+                    >Check Now</a
+                >
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>

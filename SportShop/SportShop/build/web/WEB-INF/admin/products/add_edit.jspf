@@ -1,0 +1,104 @@
+<div id="productModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+    <div class="bg-gray-900 rounded-2xl shadow-2xl p-8 w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto border border-white/10">
+        <div class="flex items-center justify-between mb-6">
+            <h3 id="modalTitle" class="text-2xl font-black text-white font-bebas tracking-wider">
+                <c:choose>
+                    <c:when test="${not empty productToEdit}">Edit Product</c:when>
+                    <c:otherwise>Add New Product</c:otherwise>
+                </c:choose>
+            </h3>
+            <button onclick="closeModal('productModal')" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"><i class="fas fa-times text-gray-300"></i></button>
+        </div>
+        <form id="productForm" action="products" method="POST" enctype="multipart/form-data" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <c:choose>
+                <c:when test="${not empty productToEdit}">
+                    <input type="hidden" name="action" value="update">
+                    <input type="hidden" name="id" value="${productToEdit.productId}">
+                </c:when>
+                <c:otherwise>
+                    <input type="hidden" name="action" value="add">
+                </c:otherwise>
+            </c:choose>
+
+            <div class="md:col-span-2">
+                <label class="text-sm font-semibold text-gray-300 mb-2 block">Product name *</label>
+                <input name="productName" required class="w-full bg-black text-white px-4 py-3 rounded-xl border border-white/10" value="${productToEdit.productName}" placeholder="e.g., Nike Air Max 270"/>
+            </div>
+            <div>
+                <label class="text-sm font-semibold text-gray-300 mb-2 block">Category *</label>
+                <select name="categoryId" required class="w-full bg-black text-white px-4 py-3 rounded-xl border border-white/10">
+                    <option value="">Choose Category</option>
+                    <c:forEach var="cat" items="${categories}">
+                        <option value="${cat.categoryID}" ${productToEdit.categoryId == cat.categoryID ? 'selected' : ''}>
+                            ${cat.categoryName}
+                        </option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div>
+                <label class="text-sm font-semibold text-gray-300 mb-2 block">Gender *</label>
+                <select name="gender" required class="w-full bg-black text-white px-4 py-3 rounded-xl border border-white/10">
+                    <option value="">Choose Gender</option>
+                    <option value="Male" ${productToEdit.gender == 'Male' ? 'selected' : ''}>Male</option>
+                    <option value="Female" ${productToEdit.gender == 'Female' ? 'selected' : ''}>Female</option>
+                    <option value="Unisex" ${productToEdit.gender == 'Unisex' ? 'selected' : ''}>Unisex</option>
+                </select>
+            </div>
+            <div>
+                <label class="text-sm font-semibold text-gray-300 mb-2 block">Colors</label>
+                <input name="colors" class="w-full bg-black text-white px-4 py-3 rounded-xl border border-white/10" value="${productToEdit.color}" placeholder="e.g., Black, White, Blue"/>
+            </div>
+            <div>
+                <label class="text-sm font-semibold text-gray-300 mb-2 block">Price (VND) *</label>
+                <input name="price" type="number" min="0" step="1000" required class="w-full bg-black text-white px-4 py-3 rounded-xl border border-white/10" value="${productToEdit.price}" placeholder="2990000"/>
+            </div>
+            <div>
+                <label class="text-sm font-semibold text-gray-300 mb-2 block">Quantity *</label>
+                <input name="quantity" type="number" min="0" required class="w-full bg-black text-white px-4 py-3 rounded-xl border border-white/10" value="${productToEdit.quantity}" placeholder="10"/>
+            </div>
+
+
+            <div class="md:col-span-2">
+                <label class="text-sm font-semibold text-gray-300 mb-2 block">Description</label>
+                <textarea name="description" rows="3" class="w-full bg-black text-white px-4 py-3 rounded-xl border border-white/10 resize-none" placeholder="Detailed product description...">${productToEdit.description}</textarea>
+            </div>
+            
+            <!-- Image Upload Section -->
+            <div class="md:col-span-2">
+                <label class="text-sm font-semibold text-gray-300 mb-2 block">Product Image</label>
+                <input type="file" name="image" accept="image/*" class="w-full bg-black text-white px-4 py-3 rounded-xl border border-white/10" onchange="previewImage(event)"/>
+                <c:if test="${not empty productToEdit.imageUrl}">
+                    <div class="mt-3 flex items-center gap-3">
+                        <span class="text-xs text-gray-400">Current image:</span>
+                        <img id="currentImage" src="${productToEdit.imageUrl}" alt="Current product" class="w-20 h-20 object-cover rounded-lg border border-white/10"/>
+                    </div>
+                </c:if>
+                <div id="imagePreview" class="mt-3 hidden">
+                    <span class="text-xs text-gray-400 block mb-2">Preview:</span>
+                    <img id="previewImg" src="" alt="Preview" class="w-20 h-20 object-cover rounded-lg border border-white/10"/>
+                </div>
+            </div>
+            
+            <div class="md:col-span-2 flex gap-3 pt-4">
+                <button type="submit" class="flex-1 bg-white text-black font-bold uppercase py-4 rounded-xl hover:bg-gray-200 transition-colors">Save Product</button>
+                <button type="button" onclick="closeModal('productModal')" class="flex-1 bg-white/10 text-white font-bold uppercase py-4 rounded-xl hover:bg-white/20 transition-colors">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function previewImage(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.getElementById('imagePreview');
+            const previewImg = document.getElementById('previewImg');
+            previewImg.src = e.target.result;
+            preview.classList.remove('hidden');
+        }
+        reader.readAsDataURL(file);
+    }
+}
+</script>

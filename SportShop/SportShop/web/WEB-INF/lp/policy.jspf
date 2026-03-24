@@ -1,0 +1,163 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<section class="relative py-16 px-8 bg-white overflow-hidden">
+                <div class="max-w-7xl mx-auto">
+                    <!-- Policy Swiper Container -->
+                    <div class="policy-showcase-swiper swiper">
+                        <div class="swiper-wrapper">
+                            <!-- Policy 1: Free Shipping -->
+                            <div class="swiper-slide">
+                                <div
+                                    class="flex flex-col items-center justify-center text-center py-12"
+                                    >
+                                    <div
+                                        class="w-20 h-20 rounded-full bg-black flex items-center justify-center mb-6 transform transition-transform duration-300 hover:scale-110"
+                                        >
+                                        <i class="fas fa-truck-fast text-white text-3xl"></i>
+                                    </div>
+                                    <h3
+                                        class="font-bebas text-black text-4xl md:text-5xl uppercase tracking-wide mb-4"
+                                        >
+                                        Free Shipping Worldwide
+                                    </h3>
+                                    <p
+                                        class="text-gray-600 font-inter text-base md:text-lg max-w-2xl"
+                                        >
+                                        Enjoy free shipping on all orders over $100. No hidden fees,
+                                        no surprises. We deliver your sports gear right to your
+                                        doorstep, anywhere in the world.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Policy 2: Easy Returns -->
+                            <div class="swiper-slide">
+                                <div
+                                    class="flex flex-col items-center justify-center text-center py-12"
+                                    >
+                                    <div
+                                        class="w-20 h-20 rounded-full bg-black flex items-center justify-center mb-6 transform transition-transform duration-300 hover:scale-110"
+                                        >
+                                        <i class="fas fa-rotate-left text-white text-3xl"></i>
+                                    </div>
+                                    <h3
+                                        class="font-bebas text-black text-4xl md:text-5xl uppercase tracking-wide mb-4"
+                                        >
+                                        30-Day Easy Returns
+                                    </h3>
+                                    <p
+                                        class="text-gray-600 font-inter text-base md:text-lg max-w-2xl"
+                                        >
+                                        Not satisfied? Return or exchange any item within 30 days.
+                                        Our hassle-free return policy ensures your complete
+                                        satisfaction with every purchase.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Policy 3: Secure Payment -->
+                            <div class="swiper-slide">
+                                <div
+                                    class="flex flex-col items-center justify-center text-center py-12"
+                                    >
+                                    <div
+                                        class="w-20 h-20 rounded-full bg-black flex items-center justify-center mb-6 transform transition-transform duration-300 hover:scale-110"
+                                        >
+                                        <i class="fas fa-shield-halved text-white text-3xl"></i>
+                                    </div>
+                                    <h3
+                                        class="font-bebas text-black text-4xl md:text-5xl uppercase tracking-wide mb-4"
+                                        >
+                                        100% Secure Payment
+                                    </h3>
+                                    <p
+                                        class="text-gray-600 font-inter text-base md:text-lg max-w-2xl"
+                                        >
+                                        Your payment information is protected with industry-leading
+                                        encryption. Shop with confidence knowing your transactions
+                                        are safe and secure.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Policy 4: Customer Support -->
+                            <div class="swiper-slide">
+                                <div
+                                    class="flex flex-col items-center justify-center text-center py-12"
+                                    >
+                                    <div
+                                        class="w-20 h-20 rounded-full bg-black flex items-center justify-center mb-6 transform transition-transform duration-300 hover:scale-110"
+                                        >
+                                        <i class="fas fa-headset text-white text-3xl"></i>
+                                    </div>
+                                    <h3
+                                        class="font-bebas text-black text-4xl md:text-5xl uppercase tracking-wide mb-4"
+                                        >
+                                        24/7 Customer Support
+                                    </h3>
+                                    <p
+                                        class="text-gray-600 font-inter text-base md:text-lg max-w-2xl"
+                                        >
+                                        Our dedicated support team is available around the clock to
+                                        assist you. Get help whenever you need it via chat, email,
+                                        or phone.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Policy 5: Authentic Products -->
+                            <div class="swiper-slide">
+                                <div
+                                    class="flex flex-col items-center justify-center text-center py-12"
+                                    >
+                                    <div
+                                        class="w-20 h-20 rounded-full bg-black flex items-center justify-center mb-6 transform transition-transform duration-300 hover:scale-110"
+                                        >
+                                        <i class="fas fa-certificate text-white text-3xl"></i>
+                                    </div>
+                                    <h3
+                                        class="font-bebas text-black text-4xl md:text-5xl uppercase tracking-wide mb-4"
+                                        >
+                                        100% Authentic Products
+                                    </h3>
+                                    <p
+                                        class="text-gray-600 font-inter text-base md:text-lg max-w-2xl"
+                                        >
+                                        Every product is guaranteed authentic and comes directly
+                                        from authorized distributors. No counterfeits, only genuine
+                                        sports equipment and gear.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Policy 6: Fast Delivery -->
+                            <div class="swiper-slide">
+                                <div
+                                    class="flex flex-col items-center justify-center text-center py-12"
+                                    >
+                                    <div
+                                        class="w-20 h-20 rounded-full bg-black flex items-center justify-center mb-6 transform transition-transform duration-300 hover:scale-110"
+                                        >
+                                        <i class="fas fa-bolt text-white text-3xl"></i>
+                                    </div>
+                                    <h3
+                                        class="font-bebas text-black text-4xl md:text-5xl uppercase tracking-wide mb-4"
+                                        >
+                                        Express Delivery Available
+                                    </h3>
+                                    <p
+                                        class="text-gray-600 font-inter text-base md:text-lg max-w-2xl"
+                                        >
+                                        Need it fast? Choose express delivery and get your order in
+                                        2-3 business days. Perfect for last-minute training sessions
+                                        or urgent replacements.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pagination Dots -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </section>

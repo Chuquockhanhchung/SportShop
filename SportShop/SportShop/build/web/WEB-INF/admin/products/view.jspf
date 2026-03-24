@@ -1,0 +1,58 @@
+<div id="viewProductModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+    <div class="bg-gray-900 rounded-2xl shadow-2xl w-full max-w-5xl mx-4 max-h-[90vh] overflow-hidden border border-white/10 flex flex-col">
+        <c:if test="${not empty productToView}">
+            <div class="flex items-center justify-between px-8 py-6 border-b border-white/10 bg-black/40 flex-shrink-0">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-800  rounded-xl flex items-center justify-center"><i class="fas fa-box-open text-white text-xl"></i></div>
+                    <div>
+                        <h3 class="text-2xl font-black text-white uppercase tracking-wide font-bebas">Product Details</h3>
+                        <p class="text-gray-400 text-sm">Complete product information</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('viewProductModal')" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-all flex items-center justify-center group"><i class="fas fa-times text-gray-400 group-hover:text-white transition-colors"></i></button>
+            </div>
+
+            <div class="overflow-y-auto p-8 space-y-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="relative group">
+                        <div class="aspect-square bg-black rounded-2xl overflow-hidden border border-white/20 shadow-2xl">
+                            <img src="${not empty productToView.imageUrl ? productToView.imageUrl : 'https://placehold.co/600x600/000000/444?text=No+Image'}" 
+                                 alt="${productToView.productName}" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                                 onerror="this.src='https://placehold.co/600x600/000000/444?text=No+Image'">
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <c:choose>
+                                <c:when test="${productToView.quantity > 10}"><span class="px-4 py-2 rounded-lg text-xs font-bold bg-green-500/80 text-white backdrop-blur-sm shadow-lg uppercase tracking-wide"><i class="fas fa-check-circle mr-1"></i>In Stock</span></c:when>
+                                <c:when test="${productToView.quantity > 0}"><span class="px-4 py-2 rounded-lg text-xs font-bold bg-yellow-500/80 text-black backdrop-blur-sm shadow-lg uppercase tracking-wide"><i class="fas fa-exclamation-triangle mr-1"></i>Low Stock</span></c:when>
+                                <c:otherwise><span class="px-4 py-2 rounded-lg text-xs font-bold bg-red-500/80 text-white backdrop-blur-sm shadow-lg uppercase tracking-wide"><i class="fas fa-times-circle mr-1"></i>Out of Stock</span></c:otherwise>
+                            </c:choose>
+                        </div>
+                    </div>
+                    <div class="space-y-4 flex flex-col">
+                        <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+                            <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Product Name</p>
+                            <h4 class="text-2xl font-black text-white mb-4 leading-tight">${productToView.productName}</h4>
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
+                                <div>
+                                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Price</p>
+                                    <p class="text-3xl font-black text-white"><fmt:formatNumber value="${productToView.price}" type="currency" maxFractionDigits="0" currencySymbol="VND"/></p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Stock</p>
+                                    <p class="text-3xl font-black text-white">${productToView.quantity}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white/5 rounded-xl p-4 border border-white/10"><div class="flex items-center gap-2 mb-2"><p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Category</p></div><p class="text-base font-bold text-white">Category ${productToView.categoryId}</p></div>
+                            <div class="bg-white/5 rounded-xl p-4 border border-white/10"><div class="flex items-center gap-2 mb-2"><p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Colors</p></div><p class="text-base font-bold text-white">${not empty productToView.color ? productToView.color : 'Not specified'}</p></div>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-4 border border-white/10"><div class="flex items-center gap-2 mb-2"><p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Description</p></div><p class="text-base font-bold text-white">${not empty productToView.description ? productToView.description : 'No description available for this product.'}</p></div>
+                    </div>
+                </div>
+            </div>
+        </c:if>
+    </div>
+</div>
